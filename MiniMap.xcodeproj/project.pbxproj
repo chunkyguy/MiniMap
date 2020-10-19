@@ -46,6 +46,7 @@
 		7920C45B253D6460000980EE /* WLMinimapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMinimapView.m; sourceTree = "<group>"; };
 		7920C460253D8E48000980EE /* WLMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMath.h; sourceTree = "<group>"; };
 		7920C461253D8E48000980EE /* WLMath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMath.m; sourceTree = "<group>"; };
+		7944EB9C253DA58B00800FEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 		7920C425253CC58D000980EE = {
 			isa = PBXGroup;
 			children = (
+				7944EB9C253DA58B00800FEF /* README.md */,
 				7920C430253CC58D000980EE /* MiniMap */,
 				7920C42F253CC58D000980EE /* Products */,
 			);

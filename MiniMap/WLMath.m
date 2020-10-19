@@ -1,7 +1,5 @@
 #import "WLMath.h"
 
-const CGFloat kDownsizeRatio = 1.0f;
-
 CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize contentSize, CGSize minimapSize)
 {
   CGRect selectedFrame = scrollBounds;
@@ -17,12 +15,6 @@ CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize
   selectedFrame.size.width /= zoomScale;
   selectedFrame.size.height /= zoomScale;
 
-  // downsize
-  selectedFrame.origin.x /= kDownsizeRatio;
-  selectedFrame.origin.y /= kDownsizeRatio;
-  selectedFrame.size.width /= kDownsizeRatio;
-  selectedFrame.size.height /= kDownsizeRatio;
-
   // calc focus frame
   if (selectedFrame.origin.x < 0) {
     selectedFrame.size.width += selectedFrame.origin.x;
@@ -33,20 +25,18 @@ CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize
     selectedFrame.origin.y = 0;
   }
 
-  CGSize thumbDownsizeSize = CGSizeMake(minimapSize.width / kDownsizeRatio, minimapSize.height / kDownsizeRatio);
-
-  if (thumbDownsizeSize.height < selectedFrame.size.height) {
-    selectedFrame.size.height = thumbDownsizeSize.height;
+  if (minimapSize.height < selectedFrame.size.height) {
+    selectedFrame.size.height = minimapSize.height;
   }
-  if ((selectedFrame.origin.y + selectedFrame.size.height) > thumbDownsizeSize.height) {
-    selectedFrame.size.height = thumbDownsizeSize.height - selectedFrame.origin.y;
+  if ((selectedFrame.origin.y + selectedFrame.size.height) > minimapSize.height) {
+    selectedFrame.size.height = minimapSize.height - selectedFrame.origin.y;
   }
 
-  if (thumbDownsizeSize.width < selectedFrame.size.width) {
-    selectedFrame.size.width = thumbDownsizeSize.width;
+  if (minimapSize.width < selectedFrame.size.width) {
+    selectedFrame.size.width = minimapSize.width;
   }
-  if ((selectedFrame.origin.x + selectedFrame.size.width) > thumbDownsizeSize.width) {
-    selectedFrame.size.width = thumbDownsizeSize.width - selectedFrame.origin.x;
+  if ((selectedFrame.origin.x + selectedFrame.size.width) > minimapSize.width) {
+    selectedFrame.size.width = minimapSize.width - selectedFrame.origin.x;
   }
 
   return selectedFrame;
