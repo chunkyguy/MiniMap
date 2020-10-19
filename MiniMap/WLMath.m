@@ -1,43 +1,55 @@
 #import "WLMath.h"
+#import <simd/simd.h>
 
-CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize contentSize, CGSize minimapSize)
+CGRect wl_CGRectScale(CGRect frame, CGFloat factor)
 {
-  CGRect selectedFrame = scrollBounds;
+  return (CGRect) {
+    .origin = { .x = frame.origin.x * factor, .y = frame.origin.y * factor },
+    .size = { .width = frame.size.width * factor, .height = frame.size.height * factor }
+  };
+}
 
-  CGFloat ratio = contentSize.height / minimapSize.height;
-  selectedFrame.origin.x /= ratio;
-  selectedFrame.origin.y /= ratio;
-  selectedFrame.size.width /= ratio;
-  selectedFrame.size.height /= ratio;
-
-  selectedFrame.origin.x /= zoomScale;
-  selectedFrame.origin.y /= zoomScale;
-  selectedFrame.size.width /= zoomScale;
-  selectedFrame.size.height /= zoomScale;
-
-  // calc focus frame
-  if (selectedFrame.origin.x < 0) {
-    selectedFrame.size.width += selectedFrame.origin.x;
-    selectedFrame.origin.x = 0;
+CGRect wl_CGRectClipped(CGRect frame, CGSize targetSize)
+{
+  // clip origin
+  if (frame.origin.x < 0) {
+    frame.size.width += frame.origin.x;
+    frame.origin.x = 0;
   }
-  if (selectedFrame.origin.y < 0) {
-    selectedFrame.size.height += selectedFrame.origin.y;
-    selectedFrame.origin.y = 0;
+  if (frame.origin.y < 0) {
+    frame.size.height += frame.origin.y;
+    frame.origin.y = 0;
   }
 
-  if (minimapSize.height < selectedFrame.size.height) {
-    selectedFrame.size.height = minimapSize.height;
+  //clip size
+  if (frame.size.width > targetSize.width) {
+    frame.size.width = targetSize.width;
   }
-  if ((selectedFrame.origin.y + selectedFrame.size.height) > minimapSize.height) {
-    selectedFrame.size.height = minimapSize.height - selectedFrame.origin.y;
-  }
-
-  if (minimapSize.width < selectedFrame.size.width) {
-    selectedFrame.size.width = minimapSize.width;
-  }
-  if ((selectedFrame.origin.x + selectedFrame.size.width) > minimapSize.width) {
-    selectedFrame.size.width = minimapSize.width - selectedFrame.origin.x;
+  if (CGRectGetMaxX(frame) > targetSize.width) {
+    frame.size.width = targetSize.width - frame.origin.x;
   }
 
-  return selectedFrame;
+  if (frame.size.height > targetSize.height) {
+    frame.size.height = targetSize.height;
+  }
+  if (CGRectGetMaxY(frame) > targetSize.height) {
+    frame.size.height = targetSize.height - frame.origin.y;
+  }
+
+  return frame;
+}
+
+CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize contentSize, CGSize targetSize)
+{
+  CGFloat inverseZoom = 1.f / zoomScale;
+  CGFloat ratio = targetSize.height / contentSize.height;
+  CGRect selectionFrame = wl_CGRectScale(scrollBounds, ratio * inverseZoom);
+  return wl_CGRectClipped(selectionFrame, targetSize);
+}
+
+CGRect wl_ScrollViewImageFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize contentSize)
+{
+  CGFloat inverseZoom = 1.f / zoomScale;
+  CGRect selectionFrame = wl_CGRectScale(scrollBounds, inverseZoom);
+  return wl_CGRectClipped(selectionFrame, contentSize);
 }

@@ -14,12 +14,13 @@
 		7920C43E253CC58E000980EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7920C43D253CC58E000980EE /* Assets.xcassets */; };
 		7920C441253CC58E000980EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7920C43F253CC58E000980EE /* LaunchScreen.storyboard */; };
 		7920C444253CC58E000980EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7920C443253CC58E000980EE /* main.m */; };
-		7920C44D253CC5C9000980EE /* smallBench.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7920C44B253CC5C9000980EE /* smallBench.jpg */; };
 		7920C44E253CC5C9000980EE /* bench.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7920C44C253CC5C9000980EE /* bench.jpg */; };
 		7920C456253CCE14000980EE /* SLELayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7920C452253CCE14000980EE /* SLELayout.m */; };
 		7920C457253CCE14000980EE /* SLELayoutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7920C453253CCE14000980EE /* SLELayoutItem.m */; };
 		7920C45C253D6460000980EE /* WLMinimapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7920C45B253D6460000980EE /* WLMinimapView.m */; };
 		7920C462253D8E48000980EE /* WLMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7920C461253D8E48000980EE /* WLMath.m */; };
+		7944EBA0253DB11900800FEF /* WLScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7944EB9F253DB11900800FEF /* WLScrollView.m */; };
+		7944EBA3253DB19500800FEF /* WLFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7944EBA2253DB19500800FEF /* WLFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,6 @@
 		7920C440253CC58E000980EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7920C442253CC58E000980EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7920C443253CC58E000980EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7920C44B253CC5C9000980EE /* smallBench.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smallBench.jpg; sourceTree = "<group>"; };
 		7920C44C253CC5C9000980EE /* bench.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bench.jpg; sourceTree = "<group>"; };
 		7920C451253CCE14000980EE /* SLELayoutItem+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLELayoutItem+Internal.h"; sourceTree = "<group>"; };
 		7920C452253CCE14000980EE /* SLELayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLELayout.m; sourceTree = "<group>"; };
@@ -47,6 +47,10 @@
 		7920C460253D8E48000980EE /* WLMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMath.h; sourceTree = "<group>"; };
 		7920C461253D8E48000980EE /* WLMath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMath.m; sourceTree = "<group>"; };
 		7944EB9C253DA58B00800FEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7944EB9E253DB11900800FEF /* WLScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLScrollView.h; sourceTree = "<group>"; };
+		7944EB9F253DB11900800FEF /* WLScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLScrollView.m; sourceTree = "<group>"; };
+		7944EBA1253DB19500800FEF /* WLFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLFooterView.h; sourceTree = "<group>"; };
+		7944EBA2253DB19500800FEF /* WLFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLFooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,15 +86,13 @@
 			children = (
 				7920C450253CCE14000980EE /* SimpleLayoutEngine */,
 				7920C44C253CC5C9000980EE /* bench.jpg */,
-				7920C44B253CC5C9000980EE /* smallBench.jpg */,
 				7920C431253CC58D000980EE /* AppDelegate.h */,
 				7920C432253CC58D000980EE /* AppDelegate.m */,
 				7920C434253CC58D000980EE /* SceneDelegate.h */,
 				7920C435253CC58D000980EE /* SceneDelegate.m */,
 				7920C437253CC58D000980EE /* ViewController.h */,
 				7920C438253CC58D000980EE /* ViewController.m */,
-				7920C45A253D6460000980EE /* WLMinimapView.h */,
-				7920C45B253D6460000980EE /* WLMinimapView.m */,
+				7944EB9D253DB0FA00800FEF /* Views */,
 				7920C460253D8E48000980EE /* WLMath.h */,
 				7920C461253D8E48000980EE /* WLMath.m */,
 				7920C43A253CC58D000980EE /* Main.storyboard */,
@@ -112,6 +114,19 @@
 				7920C455253CCE14000980EE /* SLELayoutItem.h */,
 			);
 			path = SimpleLayoutEngine;
+			sourceTree = "<group>";
+		};
+		7944EB9D253DB0FA00800FEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7944EB9E253DB11900800FEF /* WLScrollView.h */,
+				7944EB9F253DB11900800FEF /* WLScrollView.m */,
+				7920C45A253D6460000980EE /* WLMinimapView.h */,
+				7920C45B253D6460000980EE /* WLMinimapView.m */,
+				7944EBA1253DB19500800FEF /* WLFooterView.h */,
+				7944EBA2253DB19500800FEF /* WLFooterView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +189,6 @@
 				7920C441253CC58E000980EE /* LaunchScreen.storyboard in Resources */,
 				7920C44E253CC5C9000980EE /* bench.jpg in Resources */,
 				7920C43E253CC58E000980EE /* Assets.xcassets in Resources */,
-				7920C44D253CC5C9000980EE /* smallBench.jpg in Resources */,
 				7920C43C253CC58D000980EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +222,9 @@
 			files = (
 				7920C439253CC58D000980EE /* ViewController.m in Sources */,
 				7920C45C253D6460000980EE /* WLMinimapView.m in Sources */,
+				7944EBA0253DB11900800FEF /* WLScrollView.m in Sources */,
 				7920C433253CC58D000980EE /* AppDelegate.m in Sources */,
+				7944EBA3253DB19500800FEF /* WLFooterView.m in Sources */,
 				7920C456253CCE14000980EE /* SLELayout.m in Sources */,
 				7920C462253D8E48000980EE /* WLMath.m in Sources */,
 				7920C444253CC58E000980EE /* main.m in Sources */,
