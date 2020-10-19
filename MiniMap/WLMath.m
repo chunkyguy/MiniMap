@@ -1,8 +1,3 @@
-//
-// Created by Sidharth Juyal on 19/10/2020.
-// Copyright © 2020 ___ORGANIZATIONNAME___. All rights reserved.
-//
-
 #import "WLMath.h"
 
 const CGFloat kDownsizeRatio = 1.0f;
@@ -21,10 +16,6 @@ CGRect wl_ScrollViewSelectedFrame(CGRect scrollBounds, CGFloat zoomScale, CGSize
   selectedFrame.origin.y /= zoomScale;
   selectedFrame.size.width /= zoomScale;
   selectedFrame.size.height /= zoomScale;
-
-  //
-  //  CGRect scrollVisibleFrame = CGRectMake((scrollBounds.origin.x/ratio)/zoomScale, (scrollViewY/ratio)/zoomScale,
-  //                                         (scrollViewWidth/ratio)/zoomScale, (scrollViewHeight/ratio)/zoomScale);
 
   // downsize
   selectedFrame.origin.x /= kDownsizeRatio;
